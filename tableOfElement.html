@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>Document</title>
 </head>
 <body>
@@ -11,103 +12,105 @@
     <script>
         window.onload=()=>{
             class Element{
-                constructor(posi, posj,org,ans,color){
+                constructor(posi,posj,aNum,org,ans,color){
                     this.posi=posi;
                     this.posj=posj;
+                    this.aNum=aNum;
                     this.org=org;
                     this.ans=ans;
                     this.color=color;
                 }
             }
+            const colors=["orange","blue","green","red","yellow","gray","pink"];
             const elements=[
-                new Element(1,1,"H","水素",#E5FF99),
-                new Element(1,18,"He","ヘリウム"),
-                new Element(2,1,"Li","リチウム"),
-                new Element(2,2,"Be","ベリリウム"),
-                new Element(2,13,"B","ホウ素"),
-                new Element(2,14,"C","炭素"),
-                new Element(2,15,"N","窒素"),
-                new Element(2,16,"O","酸素"),
-                new Element(2,17,"F","フッ素"),
-                new Element(2,18,"Ne","ネオン"),
-                new Element(3,1,"Na","ナトリウム"),
-                new Element(3,2,"Mg","マグネシウム"),
-                new Element(3,13,"Al","アルミニウム"),
-                new Element(3,14,"Si","ケイ素"),
-                new Element(3,15,"P","リン"),
-                new Element(3,16,"S","硫黄"),
-                new Element(3,17,"Cl","塩素"),
-                new Element(3,18,"Ar","アルゴン"),
-                new Element(4,1,"K","カリウム"),
-                new Element(4,2,"Ca","カルシウム"),
-                new Element(4,3,"Sc","スカンジウム"),
-                new Element(4,4,"Ti","チタン"),
-                new Element(4,5,"V","バナジウム"),
-                new Element(4,6,"Cr","クロム"),
-                new Element(4,7,"Mn","マンガン"),
-                new Element(4,8,"Fe","鉄"),
-                new Element(4,9,"Co","コバルト"),
-                new Element(4,10,"Ni","ニッケル"),
-                new Element(4,11,"Cu","銅"),
-                new Element(4,12,"Zn","亜鉛"),
-                new Element(4,13,"Ga","ガリウム"),
-                new Element(4,14,"Ge","ゲルマニウム"),
-                new Element(4,15,"As","ヒ素"),
-                new Element(4,16,"Se","セレン"),
-                new Element(4,17,"Br","臭素"),
-                new Element(4,18,"Kr","クリプトン"),
-                new Element(5,1,"Rb","ルビジウム"),
-                new Element(5,2,"Sr","ストロンチウム"),
-                new Element(5,3,"Y","イットリウム"),
-                new Element(5,4,"Zr","ジルコニウム"),
-                new Element(5,5,"Nb","ニオブ"),
-                new Element(5,6,"Mo","モリブデン"),
-                new Element(5,7,"Tc","テクニチウム"),
-                new Element(5,8,"Ru","ルテニウム"),
-                new Element(5,9,"Rh","ロジウム"),
-                new Element(5,10,"Pd","パラジウム"),
-                new Element(5,11,"Ag","銀"),
-                new Element(5,12,"Cd","カドミウム"),
-                new Element(5,13,"In","インジウム"),
-                new Element(5,14,"Sn","スズ"),
-                new Element(5,15,"Sb","アンチモン"),
-                new Element(5,16,"Te","テルル"),
-                new Element(5,17,"I","ヨウ素"),
-                new Element(5,18,"Xe","キセノン"),
-                new Element(6,1,"Cs","セシウム"),
-                new Element(6,2,"Ba","バリウム"),
-                new Element(6,4,"Hf","ハフニウム"),
-                new Element(6,5,"Ta","タンタル"),
-                new Element(6,6,"W","タングステン"),
-                new Element(6,7,"Re","レニウム"),
-                new Element(6,8,"Os","オスミウム"),
-                new Element(6,9,"Ir","イリジウム"),
-                new Element(6,10,"Pt","白金"),
-                new Element(6,11,"Au","金"),
-                new Element(6,12,"Hg","水銀"),
-                new Element(6,13,"Tl","タリウム"),
-                new Element(6,14,"Pb","鉛"),
-                new Element(6,15,"Bi","ビスマス"),
-                new Element(6,16,"Po","ポロニウム"),
-                new Element(6,17,"At","アスタチン"),
-                new Element(6,18,"Rn","ラドン"),
-                new Element(7,1,"Fr","フランシウム"),
-                new Element(7,2,"Ra","ラジウム"),
-                new Element(7,4,"Rf","ラザホージウム"),
-                new Element(7,5,"Db","ドブニウム"),
-                new Element(7,6,"Sg","シーボーギウム"),
-                new Element(7,7,"Bh","ボーリウム"),
-                new Element(7,8,"Hs","ハッシウム"),
-                new Element(7,9,"Mt","マイトネリウム"),
-                new Element(7,10,"Ds","ダームスタチウム"),
-                new Element(7,11,"Rg","レントゲニウム"),
-                new Element(7,12,"Cn","コペルニシウム"),
-                new Element(7,13,"Nh","ニホニウム"),
-                new Element(7,14,"Fl","フレロビウム"),
-                new Element(7,15,"Mc","モスコビウム"),
-                new Element(7,16,"Lv","リバモリウム"),
-                new Element(7,17,"Ts","テネシン"),
-                new Element(7,18,"Og","オガネソン"),
+                new Element(1,1,1,"H","水素",colors[0]),
+                new Element(1,18,2,"He","ヘリウム",colors[6]),
+                new Element(2,1,3,"Li","リチウム",colors[1]),
+                new Element(2,2,4,"Be","ベリリウム",colors[2]),
+                new Element(2,13,5,"B","ホウ素",colors[5]),
+                new Element(2,14,6,"C","炭素",colors[0]),
+                new Element(2,15,7,"N","窒素",colors[0]),
+                new Element(2,16,8,"O","酸素",colors[0]),
+                new Element(2,17,9,"F","フッ素",colors[0]),
+                new Element(2,18,34,"Ne","ネオン",colors[6]),
+                new Element(3,1,11,"Na","ナトリウム",colors[1]),
+                new Element(3,2,12,"Mg","マグネシウム",colors[2]),
+                new Element(3,13,13,"Al","アルミニウム",colors[4]),
+                new Element(3,14,14,"Si","ケイ素",colors[5]),
+                new Element(3,15,15,"P","リン",colors[0]),
+                new Element(3,16,16,"S","硫黄",colors[0]),
+                new Element(3,17,17,"Cl","塩素",colors[0]),
+                new Element(3,18,18,"Ar","アルゴン",colors[6]),
+                new Element(4,1,19,"K","カリウム",colors[1]),
+                new Element(4,2,20,"Ca","カルシウム",colors[2]),
+                new Element(4,3,21,"Sc","スカンジウム",colors[3]),
+                new Element(4,4,22,"Ti","チタン",colors[3]),
+                new Element(4,5,23,"V","バナジウム",colors[3]),
+                new Element(4,6,24,"Cr","クロム",colors[3]),
+                new Element(4,7,25,"Mn","マンガン",colors[3]),
+                new Element(4,8,26,"Fe","鉄",colors[3]),
+                new Element(4,9,27,"Co","コバルト",colors[3]),
+                new Element(4,10,28,"Ni","ニッケル",colors[3]),
+                new Element(4,11,29,"Cu","銅",colors[3]),
+                new Element(4,12,30,"Zn","亜鉛",colors[3]),
+                new Element(4,13,31,"Ga","ガリウム",colors[4]),
+                new Element(4,14,32,"Ge","ゲルマニウム",colors[5]),
+                new Element(4,15,33,"As","ヒ素",colors[5]),
+                new Element(4,16,34,"Se","セレン",colors[0]),
+                new Element(4,17,35,"Br","臭素",colors[0]),
+                new Element(4,18,36,"Kr","クリプトン",colors[6]),
+                new Element(5,1,37,"Rb","ルビジウム",colors[1]),
+                new Element(5,2,38,"Sr","ストロンチウム",colors[2]),
+                new Element(5,3,39,"Y","イットリウム",colors[3]),
+                new Element(5,4,40,"Zr","ジルコニウム",colors[3]),
+                new Element(5,5,41,"Nb","ニオブ",colors[3]),
+                new Element(5,6,42,"Mo","モリブデン",colors[3]),
+                new Element(5,7,43,"Tc","テクニチウム",colors[3]),
+                new Element(5,8,44,"Ru","ルテニウム",colors[3]),
+                new Element(5,9,45,"Rh","ロジウム",colors[3]),
+                new Element(5,10,46,"Pd","パラジウム",colors[3]),
+                new Element(5,11,47,"Ag","銀",colors[3]),
+                new Element(5,12,48,"Cd","カドミウム",colors[3]),
+                new Element(5,13,49,"In","インジウム",colors[4]),
+                new Element(5,14,50,"Sn","スズ",colors[4]),
+                new Element(5,15,51,"Sb","アンチモン",colors[5]),
+                new Element(5,16,52,"Te","テルル",colors[5]),
+                new Element(5,17,53,"I","ヨウ素",colors[0]),
+                new Element(5,18,54,"Xe","キセノン",colors[6]),
+                new Element(6,1,55,"Cs","セシウム",colors[1]),
+                new Element(6,2,56,"Ba","バリウム",colors[2]),
+                new Element(6,4,72,"Hf","ハフニウム",colors[3]),
+                new Element(6,5,73,"Ta","タンタル",colors[3]),
+                new Element(6,6,74,"W","タングステン",colors[3]),
+                new Element(6,7,75,"Re","レニウム",colors[3]),
+                new Element(6,8,76,"Os","オスミウム",colors[3]),
+                new Element(6,9,77,"Ir","イリジウム",colors[3]),
+                new Element(6,10,78,"Pt","白金",colors[3]),
+                new Element(6,11,79,"Au","金",colors[3]),
+                new Element(6,12,80,"Hg","水銀",colors[3]),
+                new Element(6,13,81,"Tl","タリウム",colors[4]),
+                new Element(6,14,82,"Pb","鉛",colors[4]),
+                new Element(6,15,83,"Bi","ビスマス",colors[4]),
+                new Element(6,16,84,"Po","ポロニウム",colors[5]),
+                new Element(6,17,85,"At","アスタチン",colors[0]),
+                new Element(6,18,86,"Rn","ラドン",colors[6]),
+                new Element(7,1,87,"Fr","フランシウム",colors[1]),
+                new Element(7,2,88,"Ra","ラジウム",colors[2]),
+                new Element(7,4,104,"Rf","ラザホージウム",colors[3]),
+                new Element(7,5,105,"Db","ドブニウム",colors[3]),
+                new Element(7,6,106,"Sg","シーボーギウム",colors[3]),
+                new Element(7,7,107,"Bh","ボーリウム",colors[3]),
+                new Element(7,8,108,"Hs","ハッシウム",colors[3]),
+                new Element(7,9,109,"Mt","マイトネリウム",colors[3]),
+                new Element(7,10,110,"Ds","ダームスタチウム",colors[3]),
+                new Element(7,11,111,"Rg","レントゲニウム",colors[3]),
+                new Element(7,12,112,"Cn","コペルニシウム",colors[3]),
+                new Element(7,13,113,"Nh","ニホニウム",colors[4]),
+                new Element(7,14,114,"Fl","フレロビウム",colors[4]),
+                new Element(7,15,115,"Mc","モスコビウム",colors[4]),
+                new Element(7,16,116,"Lv","リバモリウム",colors[4]),
+                new Element(7,17,117,"Ts","テネシン",colors[0]),
+                new Element(7,18,118,"Og","オガネソン",colors[6]),
 
             ];
 
@@ -128,20 +131,23 @@
                     }else if(j==0){
                         td.textContent=i;
                         td.classList.add("colIndex");
+                        //td.style.backgroundColor="orange";
+                    
                     }
                     panels[i][j]=td;
                     
                    
-
-                   
+  
                     tr.append(td);
                 }
                 table.append(tr);
                 console.log(panels);
             }
             for(let ele of elements){
-                panels[ele.posi][ele.posj].textContent=ele.org;
+                panels[ele.posi][ele.posj].innerHTML=`${ele.aNum}<br>${ele.org}`;
                 panels[ele.posi][ele.posj].ans=ele.ans;
+                panels[ele.posi][ele.posj].classList.add(`${ele.color}`);
+
             }
         }
     </script>
