@@ -19,3 +19,19 @@
 .gray{
     background-color: gray;
 }
+.whitesmoke{
+    background-color: whitesmoke;
+}
+td{
+    padding:10px;
+}
+td.orange:hover,
+td.blue:hover,
+td.green:hover,
+td.red:hover,
+td.pink:hover,
+td.yellow:hover,
+td.gray:hover,
+td.whitesmoke:hover{
+    background-color: brown;
+}
