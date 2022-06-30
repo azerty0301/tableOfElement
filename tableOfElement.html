@@ -21,7 +21,7 @@
                     this.color=color;
                 }
             }
-            const colors=["orange","blue","green","red","yellow","gray","pink","whitesmoke"];
+            const colors=["otherNonMetal","alkalineMetal","otherMetal","alkalineEarthaMetal","transitionElements","halogen","nobleGas","uncertain"];
             //0:その他の非金属,1:アルカリ金属,2:その他の金属元素,3:アルカリ土類金属,4:遷移元素,5:ハロゲン,6:希ガス,7:分からない。未分類。
             const elements=[
                 new Element(1,1,1,"H","水素",colors[0]),
@@ -124,6 +124,7 @@
                     let td=document.createElement("td");
                     if(i==0 && j==0){
                         td.textContent="";
+                        td.classList.add("colIndex");
                     }else if(i==0){
                         td.textContent=j;
                         td.classList.add("rowIndex");
@@ -131,22 +132,28 @@
                     }else if(j==0){
                         td.textContent=i;
                         td.classList.add("colIndex");
-                        //td.style.backgroundColor="orange";
+                        //td.style.backgroundColor="#ffff93";
                     
+                    }else{
+                        td.classList.add("empty");
                     }
+                        
+
                     panels[i][j]=td;
                     
                    td.addEventListener("click",(e)=>{
                         let selectedTD=e.target;
+                        if(selectedTD.classList.contains('rowIndex') || selectedTD.classList.contains('colIndex')|| selectedTD.classList.length == 0){return;}
                         const userAns=window.prompt(`${selectedTD.org}`);
                         if(selectedTD.ans ==userAns){
-                            selectedTD.innerHTML=`${selectedTD.aNum}<br>${selectedTD.org}<br>${selectedTD.ans}`;
+                            selectedTD.innerHTML=`<span>${selectedTD.aNum}</span><br>${selectedTD.org}<br><span>${selectedTD.ans}</span>`;
 
                         }else{
                             window.alert("違います");
-                            selectedTD.style.backgroundColor="brown";
+                            selectedTD.style.backgroundColor="salmon";
                         }
                     });
+                    
   
                     tr.append(td);
                 }
@@ -154,11 +161,14 @@
                 console.log(panels);
             }
             for(let ele of elements){
-                panels[ele.posi][ele.posj].innerHTML=`${ele.aNum}<br>${ele.org}`;
+                panels[ele.posi][ele.posj].innerHTML=`<span>${ele.aNum}</span><br>${ele.org}`;
                 panels[ele.posi][ele.posj].ans=ele.ans;
                 panels[ele.posi][ele.posj].org=ele.org;
                 panels[ele.posi][ele.posj].aNum=ele.aNum;
                 panels[ele.posi][ele.posj].classList.add(`${ele.color}`);
+                panels[ele.posi][ele.posj].classList.add("exist");
+                panels[ele.posi][ele.posj].classList.remove("empty");
+                
 
             }
         }

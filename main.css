@@ -1,37 +1,68 @@
-.orange{
-    background-color: orange;
+#table{
+    margin: 20px auto;
+    background: #eee;
+    border: none;
 }
-.blue{
-    background-color: blue;
+.otherNonMetal{
+    background-color: #FFC355;
 }
-.green{
-    background-color: green;
+.alkalineMetal{
+    background-color: #C2B943;
 }
-.red{
-    background-color: red;
+.otherMetal{
+    background-color: #85AB43;
 }
-.pink{
-    background-color: pink;
+.alkalineEarthaMetal{
+    background-color: #469A4C;
+    color: rgba(252, 246, 246, 0.959);
 }
-.yellow{
-    background-color: yellow;
+.transitionElements{
+    background-color: #008658;
+    color: rgba(252, 246, 246, 0.959);
 }
-.gray{
-    background-color: gray;
+.halogen{
+    background-color: #007061;
+    color:rgba(252, 246, 246, 0.959);
 }
-.whitesmoke{
-    background-color: whitesmoke;
+.nobleGas{
+    background-color: #B6A999;
+    color: rgba(252, 246, 246, 0.959);
+}
+.uncertain{
+    background-color: rgb(250, 223, 223);
 }
 td{
-    padding:10px;
+    width: 66px;
+    box-sizing: border-box;
+    padding:10px 14px;
+    text-align: center;
 }
-td.orange:hover,
-td.blue:hover,
-td.green:hover,
-td.red:hover,
-td.pink:hover,
-td.yellow:hover,
-td.gray:hover,
-td.whitesmoke:hover{
-    background-color: brown;
+td.exist{
+    border-radius: 5px;
+}
+td.rowIndex{
+    height: 3px;
+    padding: 2px 10px;
+    background-color: white;
+}
+td.colIndex{
+    width: 30px;
+    padding: 10px 5px;
+    background-color: white;
+}
+td span{
+    font-size: 11px;
+}
+td.empty{
+    visibility: hidden;
+}
+td.otherNonMetal:hover,
+td.alkalineMetal:hover,
+td.otherMetal:hover,
+td.alkalineEarthaMetal:hover,
+td.transitionElements:hover,
+td.halogen:hover,
+td.nobleGas:hover,
+td.uncertain:hover{
+    background-color: yellow;
 }
